@@ -58,11 +58,13 @@ app.get('/dict', function (req, res) {
 	var wordMap = [];
 	var answer = {};
 	var count = 0;
-	var tried = 0;
+	var tried = {
+		count: 0
+	};
 	var threshold = 2000;
 
 	initAnswer(answer, len);
-	while (count < Math.floor(0.7 * len * len) && tried < threshold ) {
+	while (count < Math.floor(0.7 * len * len) && tried.count < threshold ) {
 		placed = placeWords(board, wordMap, tried, answer);
 		count += placed;
 	}
@@ -114,7 +116,7 @@ function placeWords(board, wordMap, tried, answer ) {
 		canPlace = matchPattern(tries, pattern, wordMap, tmpMap, wordLen, coord );
 		if (!canPlace || tmpMap.coordMap[print(coord)] == undefined) {
 			board = boardBackup;
-			tried += 1;
+			tried.count += 1;
 			return 0;
 		} 
 
