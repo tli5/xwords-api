@@ -1,0 +1,14 @@
+{
+  "name": "xwords",
+  "version": "1.0.0",
+  "description": "api serving a cross words puzzle ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "tli5",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
